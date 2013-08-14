@@ -43,11 +43,13 @@ def encode_message(key, plaintext, key_size=16):
 
 
 def decode_message(key, ciphertext, key_size=16):
-    AES.key_size = key_size
-    cipher = AES.new(key, AES.MODE_CFB)
-    plaintext = cipher.decrypt(ciphertext)[AES.block_size:]
+    iv = ciphertext[:AES.block_size]
+    ct = ciphertext[AES.block_size:]
 
-    return plaintext
+    AES.key_size = key_size
+    cipher = AES.new(key, AES.MODE_CFB, iv)
+
+    return cipher.decrypt(ct)
 
 
 if __name__ == '__main__':
