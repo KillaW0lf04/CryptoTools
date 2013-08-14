@@ -1,8 +1,8 @@
 __author__ = 'Michael Aquilina'
 
 # Encrypt and decrypt messages using the AES block cipher!
-# aes.py --decode --text <message> --passphrase <password>
-# aes.py --encode --text <message> --passphrase <password>
+# aes.py <message> <passphrase> --encode
+# aes.py <message> <passphrase> --decode
 
 # Perform preliminary check for dependencies
 import sys
