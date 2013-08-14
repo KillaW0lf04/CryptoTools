@@ -11,7 +11,7 @@ from distutils.version import StrictVersion
 
 MIN_REQUIRED_VERSION = '2.6'
 
-# Ensure an up to date version of PyCrypto is installed before cotinuing
+# Ensure an up to date version of PyCrypto is installed before continuing
 try:
     pycrypto_version = pkg_resources.get_distribution('PyCrypto').version
 except pkg_resources.DistributionNotFound:
@@ -30,7 +30,7 @@ from Crypto.Protocol.KDF import PBKDF1
 from Crypto import Random
 
 
-def encode_message(plaintext, key, key_size=16):
+def encode_message(key, plaintext, key_size=16):
 
     # Generate a random Initialisation Vector
     prng = Random.new()
@@ -42,7 +42,7 @@ def encode_message(plaintext, key, key_size=16):
     return iv + cipher.encrypt(plaintext)
 
 
-def decode_message(ciphertext, key, key_size=16):
+def decode_message(key, ciphertext, key_size=16):
     AES.key_size = key_size
     cipher = AES.new(key, AES.MODE_CFB)
     plaintext = cipher.decrypt(ciphertext)[AES.block_size:]
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     key = PBKDF1(args.passphrase, args.salt, args.key_size)
 
     if args.encode:
-        ciphertext = encode_message(args.text, key, args.key_size)
+        ciphertext = encode_message(key, args.text, args.key_size)
         print 'Your encoded ciphertext is (in hex format):'
         print ciphertext.encode('hex')
 
@@ -77,7 +77,7 @@ if __name__ == '__main__':
         ciphertext = args.text.decode('hex')
 
         print 'Your decoded plaintext is:'
-        print decode_message(ciphertext, key, args.key_size)
+        print decode_message(key, ciphertext, args.key_size)
     else:
         print 'Please specify whether you wish to --encode or --decode'
         sys.exit(1)
