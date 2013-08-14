@@ -62,16 +62,8 @@ if __name__ == '__main__':
     # Parse the command line arguments
     args = parser.parse_args()
 
-    if args.passphrase:
-        # Derive a key using a key derivation function
-        key = PBKDF1(args.passphrase, args.salt, 16)
-    else:
-        print 'A --passphrase is required to perform this operation.'
-        sys.exit(1)
-
-    if not args.text:
-        print 'Some --text needs to be specified to perform this operation.'
-        sys.exit(1)
+    # Derive a key using a key derivation function
+    key = PBKDF1(args.passphrase, args.salt, 16)
 
     if args.encode:
         ciphertext = encode_message(args.text, key, args.key_size)
