@@ -9,16 +9,18 @@ import sys
 import pkg_resources
 from distutils.version import StrictVersion
 
-# Ensure an up to date version of PyCrypto is installed before continuing
+MIN_REQUIRED_VERSION = '2.6'
+
+# Ensure an up to date version of PyCrypto is installed before cotinuing
 try:
     pycrypto_version = pkg_resources.get_distribution('PyCrypto').version
 except pkg_resources.DistributionNotFound:
     installed = False
 else:
-    installed = StrictVersion(pycrypto_version) >= StrictVersion('2.6.0')
+    installed = StrictVersion(pycrypto_version) >= StrictVersion(MIN_REQUIRED_VERSION)
 
 if not installed:
-    print 'You require PyCrypto version 2.6 or later to use this tool'
+    print 'You require PyCrypto version %s or later to use this tool' % MIN_REQUIRED_VERSION
     print 'Download it from https://www.dlitz.net/software/pycrypto/'
     sys.exit(1)
 
