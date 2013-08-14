@@ -4,6 +4,18 @@ __author__ = 'Michael Aquilina'
 # aes.py --decode --text <message> --passphrase <password>
 # aes.py --encode --text <message> --passphrase <password>
 
+# Perform preliminary check for dependencies
+import sys
+import pkg_resources
+from distutils.version import StrictVersion
+
+pycrypto_version = pkg_resources.get_distribution("PyCrypto").version
+if StrictVersion('2.6.0') > StrictVersion(pycrypto_version):
+    print 'You require PyCrypto version 2.6 or later to use this tool'
+    print 'Download it from https://www.dlitz.net/software/pycrypto/'
+    sys.exit(1)
+
+
 from Crypto.Cipher import AES
 from Crypto.Protocol.KDF import PBKDF1
 
@@ -32,7 +44,6 @@ def decode_message(ciphertext, key, key_size=16):
 
 if __name__ == '__main__':
     import argparse
-    import sys
 
     parser = argparse.ArgumentParser(description='Encode or Decode messages using the Advanced Encryption Standard (AES).')
     parser.add_argument('--encode', '-e', action='store_true', help='Perform encryption of the incoming message. Input text is expected in ASCII format.')
