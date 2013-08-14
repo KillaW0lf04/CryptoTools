@@ -11,7 +11,7 @@ from distutils.version import StrictVersion
 
 # Ensure an up to date version of PyCrypto is installed before continuing
 try:
-    pycrypto_version = pkg_resources.get_distribution("PyCrypto").version
+    pycrypto_version = pkg_resources.get_distribution('PyCrypto').version
 except pkg_resources.DistributionNotFound:
     installed = False
 else:
