@@ -1,6 +1,9 @@
 #pycharm meta data
 .idea
 
+#Linux junk files
+*~
+
 *.py[cod]
 
 # C extensions
