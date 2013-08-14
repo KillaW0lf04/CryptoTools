@@ -11,7 +11,7 @@ aes.py
 ------
 
 Encode and decode messages using the Advanced Encryption Standard. The tool makes use of a Key Derivation function to generate
-an appropriate key from a given passphrase. Currently, only CFB (Cipher FeedBack) is supported.
+an appropriate key from a given passphrase. Currently, only CFB (Cipher FeedBack) mode for AES is supported.
 
 Encoding can easily be done as follows:
 
