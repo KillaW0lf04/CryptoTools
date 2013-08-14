@@ -9,12 +9,18 @@ import sys
 import pkg_resources
 from distutils.version import StrictVersion
 
-pycrypto_version = pkg_resources.get_distribution("PyCrypto").version
-if StrictVersion('2.6.0') > StrictVersion(pycrypto_version):
+# Ensure an up to date version of PyCrypto is installed before continuing
+try:
+    pycrypto_version = pkg_resources.get_distribution("PyCrypto").version
+except pkg_resources.DistributionNotFound:
+    installed = False
+else:
+    installed = StrictVersion(pycrypto_version) >= StrictVersion('2.6.0')
+
+if not installed:
     print 'You require PyCrypto version 2.6 or later to use this tool'
     print 'Download it from https://www.dlitz.net/software/pycrypto/'
     sys.exit(1)
-
 
 from Crypto.Cipher import AES
 from Crypto.Protocol.KDF import PBKDF1
