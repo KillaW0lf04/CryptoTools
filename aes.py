@@ -63,7 +63,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # Derive a key using a key derivation function
-    key = PBKDF1(args.passphrase, args.salt, 16)
+    key = PBKDF1(args.passphrase, args.salt, args.key_size)
 
     if args.encode:
         ciphertext = encode_message(args.text, key, args.key_size)
