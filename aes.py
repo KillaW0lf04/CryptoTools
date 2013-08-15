@@ -1,8 +1,8 @@
 __author__ = 'Michael Aquilina'
 
 # Encrypt and decrypt messages using the AES block cipher!
-# aes.py <message> <passphrase> --encode
-# aes.py <message> <passphrase> --decode
+# aes.py <message> <passphrase> --encrypt
+# aes.py <message> <passphrase> --decrypt
 
 # Perform preliminary check for dependencies
 import sys
@@ -56,8 +56,8 @@ if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser(description='Encode or Decode messages using the Advanced Encryption Standard (AES).')
-    parser.add_argument('--encode', '-e', action='store_true', help='Perform encryption of the incoming message. Input text is expected in ASCII format.')
-    parser.add_argument('--decode', '-d', action='store_true', help='Perform decryption of the incoming message. Input text is expected in hex encoded format.')
+    parser.add_argument('--encrypt', '-e', action='store_true', help='Perform encryption of the incoming message. Input text is expected in ASCII format.')
+    parser.add_argument('--decrypt', '-d', action='store_true', help='Perform decryption of the incoming message. Input text is expected in hex encoded format.')
     parser.add_argument('text', help='The text to encode or decode depending on the function being used.')
     parser.add_argument('passphrase', help='Specify the passphrase with which to generate the cipher key.')
     parser.add_argument('--salt', '-s', help='Specify the salt to use when deriving a key from your passphrase.', default='12345678')
@@ -69,12 +69,12 @@ if __name__ == '__main__':
     # Derive a key using a key derivation function
     key = PBKDF1(args.passphrase, args.salt, args.key_size)
 
-    if args.encode:
+    if args.encrypt:
         ciphertext = encode_message(key, args.text, args.key_size)
         print 'Your encoded ciphertext is (in hex format):'
         print ciphertext.encode('hex')
 
-    elif args.decode:
+    elif args.decrypt:
         # Convert hex encoded message into ciphertext (ascii)
         ciphertext = args.text.decode('hex')
 
