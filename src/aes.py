@@ -46,10 +46,10 @@ def decrypt_message(key, ciphertext, key_size=16):
 if __name__ == '__main__':
     import argparse
 
-    parser = argparse.ArgumentParser(description='Encode or Decode messages using the Advanced Encryption Standard (AES).')
+    parser = argparse.ArgumentParser(description='Encrypt or Decrypt messages using the Advanced Encryption Standard (AES).')
     parser.add_argument('--encrypt', '-e', action='store_true', help='Perform encryption of the incoming message. Input text is expected in ASCII format.')
     parser.add_argument('--decrypt', '-d', action='store_true', help='Perform decryption of the incoming message. Input text is expected in hex encoded format.')
-    parser.add_argument('text', help='The text to encode or decode depending on the function being used.')
+    parser.add_argument('text', help='The text to encrypt or decrypt depending on the function being used.')
     parser.add_argument('passphrase', help='Specify the passphrase with which to generate the cipher key.')
     parser.add_argument('--salt', '-s', help='Specify the salt to use when deriving a key from your passphrase.', default='12345678')
     parser.add_argument('--key-size', type=int, choices=(16, 24, 32), default=16, help='Specify the key size (16, 24 or 32 bytes). Default is 16 bytes.')
