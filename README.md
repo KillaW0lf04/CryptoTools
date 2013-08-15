@@ -21,7 +21,7 @@ python aes.py "Attack at Dawn" "Password1" --encrypt
 # 072d9611db8bffa2a135fd24a12146a00de6948a7e260579a3bc46bea184
 ```
   
-Decrypting can be performed using a similiar step:
+Decrypting can be performed using a similar step:
 
 ```
 python aes.py 072d9611db8bffa2a135fd24a12146a00de6948a7e260579a3bc46bea184 "Password1" --decrypt
@@ -31,7 +31,7 @@ python aes.py 072d9611db8bffa2a135fd24a12146a00de6948a7e260579a3bc46bea184 "Pass
   
 **Optional Arguments**
   
-By defualt, a key size of 16 bytes is generated for AES-128. However, you may use the --key-size switch to specify between 16, 24 or 32 bytes.
+By default, a key size of 16 bytes is generated for AES-128. However, you may use the --key-size switch to specify between 16, 24 or 32 bytes.
 
 ```
 python aes.py "Attack at Dawn" "Password1" --decrypt --key-size 32
