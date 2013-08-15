@@ -1,4 +1,4 @@
-__author__ = 'Mike'
+__author__ = 'Michael Aquilina'
 
 import pkg_resources
 from distutils.version import StrictVersion

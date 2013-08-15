@@ -1,6 +1,6 @@
 from Crypto.Protocol.KDF import PBKDF1
 
-from aes import encrypt_message, decrypt_message
+from src.aes import encrypt_message, decrypt_message
 
 
 def test_integrity():

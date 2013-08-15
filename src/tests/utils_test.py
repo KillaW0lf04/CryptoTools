@@ -1,4 +1,4 @@
-from utils import is_package_installed
+from src.utils import is_package_installed
 
 
 def test_is_package_installed():
