@@ -5,28 +5,19 @@ __author__ = 'Michael Aquilina'
 # aes.py <message> <passphrase> --decrypt
 
 # Perform preliminary check for dependencies
+
 import sys
-import pkg_resources
-from distutils.version import StrictVersion
+from utils import is_package_installed
 
 MIN_REQUIRED_VERSION = '2.6'
 
-# Ensure an up to date version of PyCrypto is installed before continuing
-try:
-    pycrypto_version = pkg_resources.get_distribution('PyCrypto').version
-except pkg_resources.DistributionNotFound:
-    installed = False
-else:
-    installed = StrictVersion(pycrypto_version) >= StrictVersion(MIN_REQUIRED_VERSION)
-
-if not installed:
+if not is_package_installed('PyCrypto', MIN_REQUIRED_VERSION):
     print 'You require PyCrypto version %s or later to use this tool' % MIN_REQUIRED_VERSION
     print 'Download it from https://www.dlitz.net/software/pycrypto/'
     sys.exit(1)
 
 from Crypto.Cipher import AES
 from Crypto.Protocol.KDF import PBKDF1
-
 from Crypto import Random
 
 

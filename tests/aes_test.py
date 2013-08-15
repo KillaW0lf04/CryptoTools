@@ -1,6 +1,4 @@
 from Crypto.Protocol.KDF import PBKDF1
-from Crypto.Cipher import AES
-from Crypto import Random
 
 from aes import encrypt_message, decrypt_message
 
