@@ -7,5 +7,5 @@ def test_integrity():
     key = PBKDF1('Password1', '12345678', 16)
     plaintext = 'Test Text'
 
-    # Ensure that E(k, D(k, p)) == p
+    # Ensure that D(k, E(k, p)) == p
     assert decrypt_message(key, encrypt_message(key, plaintext)) == plaintext
