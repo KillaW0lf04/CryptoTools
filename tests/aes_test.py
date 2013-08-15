@@ -2,7 +2,7 @@ from Crypto.Protocol.KDF import PBKDF1
 from Crypto.Cipher import AES
 from Crypto import Random
 
-from aes import encode_message, decode_message
+from aes import encrypt_message, decrypt_message
 
 
 def test_integrity():
@@ -10,4 +10,4 @@ def test_integrity():
     plaintext = 'Test Text'
 
     # Ensure that E(k, D(k, p)) == p
-    assert decode_message(key, encode_message(key, plaintext)) == plaintext
+    assert decrypt_message(key, encrypt_message(key, plaintext)) == plaintext

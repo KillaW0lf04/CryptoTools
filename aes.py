@@ -30,7 +30,7 @@ from Crypto.Protocol.KDF import PBKDF1
 from Crypto import Random
 
 
-def encode_message(key, plaintext, key_size=16):
+def encrypt_message(key, plaintext, key_size=16):
 
     # Generate a random Initialisation Vector
     prng = Random.new()
@@ -42,7 +42,7 @@ def encode_message(key, plaintext, key_size=16):
     return iv + cipher.encrypt(plaintext)
 
 
-def decode_message(key, ciphertext, key_size=16):
+def decrypt_message(key, ciphertext, key_size=16):
     iv = ciphertext[:AES.block_size]
     ct = ciphertext[AES.block_size:]
 
@@ -70,16 +70,16 @@ if __name__ == '__main__':
     key = PBKDF1(args.passphrase, args.salt, args.key_size)
 
     if args.encrypt:
-        ciphertext = encode_message(key, args.text, args.key_size)
-        print 'Your encoded ciphertext is (in hex format):'
+        ciphertext = encrypt_message(key, args.text, args.key_size)
+        print 'Your encrypted ciphertext is (in hex format):'
         print ciphertext.encode('hex')
 
     elif args.decrypt:
         # Convert hex encoded message into ciphertext (ascii)
         ciphertext = args.text.decode('hex')
 
-        print 'Your decoded plaintext is:'
-        print decode_message(key, ciphertext, args.key_size)
+        print 'Your decrypted plaintext is:'
+        print decrypt_message(key, ciphertext, args.key_size)
     else:
-        print 'Please specify whether you wish to --encode or --decode'
+        print 'Please specify whether you wish to --encrypt or --decrypt'
         sys.exit(1)

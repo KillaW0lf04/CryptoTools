@@ -16,16 +16,16 @@ an appropriate key from a given passphrase. Currently, only CFB (Cipher FeedBack
 Encoding can easily be done as follows:
 
 ```
-python aes.py "Attack at Dawn" "Password1" --encode
-# Your encoded ciphertext is (in hex format):
+python aes.py "Attack at Dawn" "Password1" --encrypt
+# Your encrypted ciphertext is (in hex format):
 # 072d9611db8bffa2a135fd24a12146a00de6948a7e260579a3bc46bea184
 ```
   
 Decoding can be performed using a similiar step:
 
 ```
-python aes.py 072d9611db8bffa2a135fd24a12146a00de6948a7e260579a3bc46bea184 "Password1" --decode
-# Your decoded plaintext is:
+python aes.py 072d9611db8bffa2a135fd24a12146a00de6948a7e260579a3bc46bea184 "Password1" --decrypt
+# Your decrypted plaintext is:
 # Attack at Dawn
 ```
   
