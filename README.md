@@ -38,6 +38,31 @@ python aes.py "Attack at Dawn" "Password1" --decrypt --key-size 32
 ```
   
 The salt used for the generation of the key from the input password can be changed using the --salt switch. By Default, this would be set to '12345678'.
-  
- 
+
+caesar.py
+---------
+
+Encrypt and decrypt messages using the historical Caesar cipher. The cipher is only included for educational purposes and should not be relied on
+for transmitting messages securely. Messages encrypted with this cipher are *very* easily broken using frequency analysis. Apart from this, the
+key space of this cipher is only 255 keys in size, meaning that all possible combinations can be brute forced by a computer in a matter of milliseconds.
+
+Having said that, here is how to use caesar.py
+
+Encrypting with the caesar cipher can be performed as follows:
+
+```
+python caesar.py "veni vidi vici" 14 --encrypt
+# Your encrypted text is (in hex format):
+# 84737c772e847772772e84777177
+```
+
+The output is kept in hex format to prevent the command line from printing invalid characters, which may result in corrupting your text when decrypting.
+
+Decrypting can be then be performed as follows:
+
+```
+python caesar.py 84737c772e847772772e84777177 14 --decrypt
+# Your decrypted text is:
+# veni vidi vici
+```
   
