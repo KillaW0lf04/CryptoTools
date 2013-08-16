@@ -65,4 +65,28 @@ python caesar.py 84737c772e847772772e84777177 14 --decrypt
 # Your decrypted text is:
 # veni vidi vici
 ```
-  
+
+vigenere.py
+-----------
+
+Encrypt and decrypt messages with another historical cipher called the Vigenere cipher. This cipher is often thought to be the natural
+evolution of the caesar cipher used during the Renaissance. Once again, this cipher is only included here for educational purposes
+and should not be used to transmit messages securely. Vignere ciphers can be broken using simple techniques (given enough data). Having
+said that, it is much more secure than a caesar cipher.
+
+Encrypting with the vigenere cipher can be performed as follows:
+
+```
+python vigenere.py "La cifra del. Sig. Giovan Battista Bellaso" "Password1" --encrypt
+# Your encrypted ciphrertext is (in hex format):
+# 9cc293d6e0d5e4c551b4c6dfa197c2dbcb5f70a8dce2edd0e08473b1d5e7dceae3d38473b5cddfd4eade
+```
+
+Decrypting can then be performed as follows:
+
+```
+python vigenere.py 9cc293d6e0d5e4c551b4c6dfa197c2dbcb5f70a8dce2edd0e08473b1d5e7dceae3d38473b5cddfd4eade "Password1" --decrypt
+Your decrypted plaintext is:
+La cifra del. Sig. Giovan Battista Bellaso
+
+```
