@@ -2,7 +2,7 @@ __author__ = 'Michael Aquilina'
 
 # Encrypt and Decrypt messages using a very simple Caesar cipher
 # NOTE: This is here just for educational purposes, you should not rely
-# on the security of this cipher for sending messages. Caeser ciphers are
+# on the security of this cipher for sending messages. Caesar ciphers are
 # very easily broken through frequency analysis.
 #
 # Use aes.py to encrypt and decrypt messages with good security.
