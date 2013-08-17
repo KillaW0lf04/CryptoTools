@@ -40,7 +40,7 @@ if __name__ == '__main__':
 
     if args.encrypt:
         ct = encrypt_message(args.passphrase, args.text)
-        print 'Your encrypted ciphrertext is (in hex format):'
+        print 'Your encrypted ciphertext is (in hex format):'
         print ct.encode('hex')
 
     elif args.decrypt:
