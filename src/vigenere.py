@@ -17,6 +17,7 @@ __author__ = 'Michael Aquilina'
 
 from utils import zip2
 
+
 def encrypt_message(key, plaintext):
     return ''.join([chr((ord(c1) + ord(c2)) % 255) for c1, c2 in zip2(key, plaintext)])
 
