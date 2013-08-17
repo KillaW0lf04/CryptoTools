@@ -88,5 +88,4 @@ Decrypting can then be performed as follows:
 python vigenere.py 9cc293d6e0d5e4c551b4c6dfa197c2dbcb5f70a8dce2edd0e08473b1d5e7dceae3d38473b5cddfd4eade "Password1" --decrypt
 Your decrypted plaintext is:
 La cifra del. Sig. Giovan Battista Bellaso
-
 ```
