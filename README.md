@@ -3,7 +3,9 @@ CryptoTools
 
 A set crypto tools written in Python 2.7 which provide means of encrypting and decrypting data using technologies such as AES and RSA.
 
-Requires the latest [PyCrypto](https://www.dlitz.net/software/pycrypto/) package to work.
+Requires the latest [PyCrypto](https://www.dlitz.net/software/pycrypto/) package to work. As of this writing, the version being used was 2.6
+
+It is important to note that the ciphers below do not proivde authenticated encryption.
 
 The following tools are provided for your use:
 
